@@ -1,7 +1,7 @@
 // IMPORTANT: Update this URL to your Render backend URL before deploying to Vercel
 const API_BASE_URL = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
     ? "http://localhost:3000"
-    : "https://personal-details-0nk5.onrender.com"; // Actual deployed Render URL
+    : "https://personal-details-4q6h.onrender.com"; // Actual deployed Render URL
 
 const form = document.getElementById("personForm");
 
