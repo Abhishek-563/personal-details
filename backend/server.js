@@ -3,19 +3,20 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGO_URI)
-.then(() => {
-    console.log("MongoDB Atlas Connected");
-})
-.catch(err => {
-    console.log(err);
-});
+    .then(() => {
+        console.log("MongoDB Atlas Connected");
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
 const personSchema = new mongoose.Schema({
     name: String,
@@ -38,7 +39,7 @@ app.post("/addPerson", async (req, res) => {
             message: "Data Saved Successfully"
         });
 
-    } catch(error) {
+    } catch (error) {
 
         res.status(500).json({
             message: error.message
